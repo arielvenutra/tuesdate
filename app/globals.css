@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+
+:root {
+  --font-inter: 'Inter', system-ui, sans-serif;
+  --font-playfair: 'Playfair Display', Georgia, serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #0d0618;
+  color: #f1f0f5;
+  font-family: var(--font-inter);
+  min-height: 100dvh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Glass card effect */
+.glass {
+  background: rgba(26, 13, 46, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(168, 85, 247, 0.15);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #f43f5e, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0d0618;
+}
+::-webkit-scrollbar-thumb {
+  background: #2d1b4e;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #a855f7;
+}
+
+/* Roulette button glow */
+.btn-roulette {
+  background: linear-gradient(135deg, #f43f5e, #a855f7);
+  box-shadow: 0 0 30px rgba(244, 63, 94, 0.4), 0 0 60px rgba(168, 85, 247, 0.2);
+  transition: all 0.3s ease;
+}
+.btn-roulette:hover:not(:disabled) {
+  box-shadow: 0 0 40px rgba(244, 63, 94, 0.6), 0 0 80px rgba(168, 85, 247, 0.4);
+  transform: scale(1.03);
+}
+.btn-roulette:active:not(:disabled) {
+  transform: scale(0.97);
+}
+.btn-roulette:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Spinning animation for roulette */
+@keyframes roulette-spin {
+  0%   { transform: rotate(0deg) scale(1); }
+  25%  { transform: rotate(180deg) scale(1.05); }
+  75%  { transform: rotate(540deg) scale(1.05); }
+  100% { transform: rotate(720deg) scale(1); }
+}
+.spinning {
+  animation: roulette-spin 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Star rating */
+.star {
+  transition: transform 0.15s ease, color 0.15s ease;
+  cursor: pointer;
+}
+.star:hover {
+  transform: scale(1.2);
+}
